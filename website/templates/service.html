@@ -1,0 +1,29 @@
+{% extends 'layouts/master.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+       <div class="col-md-12 py-5">
+          <h1>Service list</h1>
+        </div>
+    </div>
+    <div class="row">
+        {% for service in serviceData %}
+        <div class="col-md-4 mb-5">
+            <div class="card" >
+                {% if service.image %}
+                <img src="{{service.image.url}}"  style="height: 200px;" class="card-img-top" alt="{{service.title}}">
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{service.title}}</h5>
+                  <p class="card-text">{{service.get_limit_summary}}</p>
+                  <a href="{% url 'service-details' service.slug %}" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

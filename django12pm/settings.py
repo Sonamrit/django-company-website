@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
     'bootstrap5',
+    'django_ckeditor_5',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +130,9 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/uploads/'
 
+# Add this for CKEditor to handle media files
+CKEDITOR_5_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -164,3 +170,21 @@ JAZZMIN_SETTINGS = {
     # Copyright on the footer
     "copyright": "Techrasta",
 }
+
+KEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': '500',
+        'width': 'auto',
+        'remove_plugins': 'stylesheetparser',
+        'extraPlugins': ','.join(
+            [
+                'codesnippet',
+                'uploadimage',
+                'uploadfile',
+            ]
+        ),
+    }
+}
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

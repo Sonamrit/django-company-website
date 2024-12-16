@@ -4,15 +4,15 @@
 <div class="container">
     <div class="row">
        <div class="col-md-12 py-5">
-          <h1>About Us</h1>
+          <h1>Service Details</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-          {% if aboutUs.image %}
-          <img src="{{aboutUs.image.url}}" alt="{{aboutUs.title}}" class="img-fluid" >
+          {% if serviceData.image %}
+          <img src="{{serviceData.image.url}}" alt="{{service.title}}" class="img-fluid" >
           {% endif %}
-          <p>{{aboutUs.description | safe}}</p>
+          <p>{{serviceData.description | safe}}</p>
         </div>
     </div>
 
